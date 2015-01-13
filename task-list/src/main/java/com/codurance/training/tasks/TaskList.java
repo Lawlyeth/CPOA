@@ -65,21 +65,38 @@ public final class TaskList implements Runnable {
             case "help":
                 help();
                 break;
+            case "delete":
+            	delete(commandRest[1]);
+            	break;
             default:
                 error(command);
                 break;
         }
     }
+    
+    //On delete la tâche
+    private void delete(String string) {
+		
+		
+	}
 
+	//Show avec affichage en syso
     private void show() {
         for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
             out.println(project.getKey());
+            System.out.println(project.getKey());
             for (Task task : project.getValue()) {
-                out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+            	 out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+            	 System.out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
             }
+            
             out.println();
+            System.out.println();
         }
     }
+    
+   
+
 
     private void add(String commandLine) {
         String[] subcommandRest = commandLine.split(" ", 2);
