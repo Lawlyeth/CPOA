@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import org.junit.Before;
 import org.junit.Test;
 
+//cc je suis tristan 
 public final class ApplicationTest {
 	public static final String PROMPT = "> ";
 	private PipedOutputStream inStream;
