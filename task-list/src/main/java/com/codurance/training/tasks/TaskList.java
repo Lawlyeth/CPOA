@@ -76,18 +76,56 @@ public final class TaskList implements Runnable {
     
     //On delete la tâche
     private void delete(String string) {
+    	 String[] subcommandRest = string.split(" ", 2);
+         String subcommand = subcommandRest[0];
+         if (subcommand.equals("project")) {
+             deleteProject(subcommandRest[1]);
+         } else if (subcommand.equals("task")) {
+             String[] projectTask = subcommandRest[1].split(" ", 2);
+             deleteTask(projectTask[0], projectTask[1]);
+         }
+		System.out.println("vivante!");
+	}
+
+	private void deleteTask(String project, String description) {
+		/*
+		List<Task> projectTasks = tasks.get(project);
+        if (projectTasks == null) {
+            out.printf("Could not find a project with the name \"%s\".", project);
+            out.println();
+            return;
+        }
+        projectTasks.add(new Task(nextId(), description, null));
+        */
+		List<Task> projectTasks = tasks.get(project);
+        if (projectTasks == null) {
+            out.printf("Could not find a project with the name \"%s\".", project);
+            out.println();
+            return;
+        }
+        if(tasks.get(project).contains(description)){
+        	System.out.println("ccpedale");
+        int niveau = 0;
+        projectTasks.remove(0);
+        }
 		
+	}
+
+	private void deleteProject(String name) {
+		// TODO Auto-generated method stub
+		//tasks.put(name, new ArrayList<Task>());
 		
+		tasks.remove(name);
 	}
 
 	//Show avec affichage en syso
     private void show() {
         for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
             out.println(project.getKey());
-            System.out.println(project.getKey());
+            //System.out.println(project.getKey());
             for (Task task : project.getValue()) {
             	 out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
-            	 System.out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+            	 //System.out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
             }
             
             out.println();
