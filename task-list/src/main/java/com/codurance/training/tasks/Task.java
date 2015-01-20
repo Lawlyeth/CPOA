@@ -51,4 +51,8 @@ public final class Task {
     public void setDeadline(Date pDeadline){
     	this.deadline = pDeadline;
     }
+    
+    public void setDate(Date pDate){
+    	this.date = pDate;
+    }
 }
