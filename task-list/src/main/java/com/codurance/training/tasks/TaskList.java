@@ -103,7 +103,8 @@ public final class TaskList implements Runnable {
             out.println();
             return;
         }
-        if(tasks.get(project).contains(description)){
+        if(projectTasks.contains(description))
+       {
         	System.out.println("ccpedale");
         int niveau = 0;
         projectTasks.remove(0);
