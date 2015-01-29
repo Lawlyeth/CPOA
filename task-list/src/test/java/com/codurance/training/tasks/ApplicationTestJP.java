@@ -53,6 +53,8 @@ public final class ApplicationTestJP {
 		
 		
 		
+		
+		
 		execute("quit");
 	}
 
